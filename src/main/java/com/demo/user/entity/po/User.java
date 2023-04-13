@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -48,4 +46,22 @@ public class User implements Serializable {
      */
     @TableField("email")
     private String email;
+
+    /**
+     * 密码
+     */
+    @TableField("password")
+    private String password;
+
+    /**
+     * 头像
+     */
+    @TableField("avatar")
+    private String avatar;
+
+    /**
+     * 电话
+     */
+    @TableField("tel")
+    private String tel;
 }

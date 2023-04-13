@@ -16,7 +16,16 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 禁用缓存，防止重构项目的时候xml文件不会更新
     cache-enabled: false
+    # 开启数据库表结构自动更新
+    # default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
   # mapper.xml扫描路径
   mapper-locations: classpath:/mapper/**/*.xml
   # 开启别名
   type-aliases-package: com.demo.**.entity
+
+  global-config:
+    db-config:
+      # 自动映射将表字段的“_”转换为驼峰命名
+      column-format: underline_to_camel
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.school.mapper.ClassMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.demo.school.entity.po.Class">
+        <id column="id" property="id" />
+        <result column="grade" property="grade" />
+        <result column="name" property="name" />
+        <result column="excellent" property="excellent" />
+    </resultMap>
+
+    <!--获取学生分页数据-->
+<!--    <select id="getStudentPage" resultType="com.demo.school.entity.dto.ClassStudentDto">
+        select c.id, grade, c.name as className, excellent
+        from class c
+        left join student s on c.id = s.class_id
+        where
+            <if test="qo.grade != null and qo.grade != 0">
+                and c.grade = #{qo.grade}
+            </if>
+            <if test="qo.ClassName != null and qo.ClassName != ''">
+                and c.name = #{qo.ClassName}
+            </if>
+    </select>-->
+    <select id="getStudentPage" resultType="classStudentDto">
+        select * from class
+    </select>
+</mapper>
