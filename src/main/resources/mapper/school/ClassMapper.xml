@@ -23,7 +23,7 @@
                 and c.name = #{qo.ClassName}
             </if>
     </select>-->
-    <select id="getStudentPage" resultType="classStudentDto">
+    <select id="getStudentPage" resultType="class">
         select * from class
     </select>
 </mapper>
