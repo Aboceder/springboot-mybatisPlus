@@ -11,19 +11,28 @@
     </resultMap>
 
     <!--获取学生分页数据-->
-<!--    <select id="getStudentPage" resultType="com.demo.school.entity.dto.ClassStudentDto">
-        select c.id, grade, c.name as className, excellent
+    <select id="getStudentPage" resultType="com.demo.school.entity.dto.ClassStudentDto">
+        select s.*, c.id as classId, c.name as className
         from class c
         left join student s on c.id = s.class_id
-        where
+        <where>
             <if test="qo.grade != null and qo.grade != 0">
                 and c.grade = #{qo.grade}
             </if>
-            <if test="qo.ClassName != null and qo.ClassName != ''">
-                and c.name = #{qo.ClassName}
+            <if test="qo.className != null and qo.ClassName != ''">
+                and c.name like concat('%', #{qo.ClassName},'%')
             </if>
-    </select>-->
-    <select id="getStudentPage" resultType="class">
-        select * from class
+        </where>
+        order by s.id
+        limit #{page}, #{qo.size}
+    </select>
+
+    <!--使用ew条件自动拼接查询学生分页列表-->
+    <select id="getStudentPage1" resultType="com.demo.school.entity.dto.ClassStudentDto">
+        select s.*, c.id as classId, c.name as className
+        from class c
+        left join student s on c.id = s.class_id
+        order by id
+        ${ew.customSqlSegment}
     </select>
 </mapper>

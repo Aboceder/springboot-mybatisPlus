@@ -25,10 +25,18 @@ public class ClassController {
     }
 
     /**
-     * 获取学生分页数据
+     * 获取学生分页数据（xml文件写sql）
      */
     @PostMapping("/getStudentPage")
     public List<ClassStudentDto> getStudentPage(GetStudentQo qo) {
         return classService.getStudentPage(qo);
+    }
+
+    /**
+     * 获取学生分页数据（baseMapper）
+     */
+    @PostMapping("/getStudentPage2")
+    public List<ClassStudentDto> getStudentPage2(GetStudentQo qo) {
+        return classService.getStudentPage2(qo);
     }
 }

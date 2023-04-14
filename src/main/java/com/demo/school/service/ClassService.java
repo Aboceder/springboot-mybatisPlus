@@ -22,4 +22,8 @@ public interface ClassService extends IService<Class> {
      */
     List<ClassStudentDto> getStudentPage(GetStudentQo qo);
 
+    /**
+     * 获取学生分页数据（baseMapper）
+     */
+    List<ClassStudentDto> getStudentPage2(GetStudentQo qo);
 }
