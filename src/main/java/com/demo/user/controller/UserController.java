@@ -81,4 +81,10 @@ public class UserController {
         result.put("CPU占用", cpuUsage * 100 + " %");
         return result;
     }
+
+
+    @GetMapping("/findById")
+    public User findById(String id) {
+        return userService.findById(id);
+    }
 }

@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  # 项目启动banner图
+#  banner:
+#    image:
+#      location: classpath:/banner/WMDKM.jpg
   # 数据库
   datasource:
     type: com.mysql.cj.jdbc.MysqlDataSource

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface UserService extends IService<User> {
     List<User> getUserList(Long id);
+
+    User findById(String id);
 }

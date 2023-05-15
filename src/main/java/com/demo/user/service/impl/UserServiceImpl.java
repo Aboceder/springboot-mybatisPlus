@@ -6,6 +6,7 @@ import com.demo.user.mapper.UserMapper;
 import com.demo.user.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -22,5 +23,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public List<User> getUserList(Long id) {
         return userMapper.getUserList(id);
+    }
+
+    @Override
+    public User findById(String id) {
+        if (!StringUtils.hasText(id)) {
+            throw new RuntimeException("id不能为空");
+        }
+        return userMapper.selectById(id);
     }
 }
